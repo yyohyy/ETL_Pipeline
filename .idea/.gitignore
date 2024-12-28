@@ -1,5 +1,6 @@
 # Default ignored files
 /shelf/
 /workspace.xml
-config/gitconfig.cfg
+*.cfg
+*.log
 logs/
