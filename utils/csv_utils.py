@@ -1,4 +1,3 @@
-#import csv
 import pandas as pd
 import os
 from library.variables import Variables
@@ -8,13 +7,8 @@ csv_dir_path = Variables("ETL").get_variable().get("csv_dir_path")
 def create_csv(data, column_names, file_name):
     try:
         file_path = f"{csv_dir_path}/{file_name}.csv"
-        df = pd.DataFrame(data, column_names)
+        df = pd.DataFrame(data, columns=column_names)
         df.to_csv(file_path, index=False, encoding="utf-8")
-        # with open(file_path, mode='w', newline='', encoding='utf-8') as file:
-        #     writer = csv.writer(file)
-        #     if column_names:
-        #         writer.writerow(column_names)
-        #     writer.writerows(data)
         print(f"Data successfully exported to '{file_name}'.")
     except Exception as e:
         print(f"Error exporting data to CSV: {e}")

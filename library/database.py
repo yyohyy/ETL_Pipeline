@@ -4,6 +4,13 @@ from library.variables import Variables
 
 class Database:
     _config = Variables("DATABASE").get_variable()
+    _variables = Variables("ETL").get_variable()
+    _csv_dir_path = _variables.get("csv_dir_path")
+    _source_db = _variables.get("source_db")
+    _stage_db =_variables.get("stage_db")
+    _temp_db = _variables.get("temp_db")
+    _target_db = _variables.get("target_db")
+
     def __init__(self, logger: Logger):
         self.connection = None
         self.cursor = None
